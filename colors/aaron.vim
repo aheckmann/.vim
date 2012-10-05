@@ -33,6 +33,8 @@ hi Visual         guifg=#0E2231           guibg=#AFC4DB
 hi WarningMsg     guifg=#CF6A4C           guibg=#420E09
 hi WildMenu       guifg=#AFC4DB           guibg=#0E2231
 
+hi CursorLine NONE ctermbg=000 guibg=blue " NONE turns off underline
+
 "Syntax hilight groups
 
 hi Comment        guifg=#8F9D6A ctermfg=243 gui=italic
