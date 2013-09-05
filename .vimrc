@@ -1,21 +1,3 @@
-" - put in /etc/vim/
-"
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the
 " following enables syntax highlighting by default.
@@ -55,22 +37,14 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
-"set hlsearch
 set showmode
 set wildmenu
 set wildmode=list:longest
-"set visualbell
-"
 set cursorline
-
 set ruler
-" set relativenumber " not yet available until vim 7.3 which i don't have yet
-" show line numbers
-set number
-"set autowrite		" Automatically save before commands like :next and :make
+set number " show line numbers
 set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
-inoremap kj <ESC> " map jj to the escape key
+inoremap kj <ESC> " map kj to the escape key
 " auto return to bookmarked line and column
 noremap ' `
 noremap ` '
@@ -82,7 +56,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" use spaces for tab
+" spaces and tabs
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -133,10 +107,20 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>85v.\+', -1)
 endif
 
-hi CursorLine NONE ctermbg=000 guibg=blue " NONE turns off underline
-"call ExpextCursorSlowDown(now)
+" display file title of vim in title bar
+set t_ts=]1;
+set t_fs=
+let &titlestring = expand("%:t") . " @ " . hostname()
+set title
 
-let g:gist_clip_command='xclip -selection clipboard'
-let g:gist_detect_filetype=1
-let g:github_user='aheckmann'
-let g:github_token='XXX'
+" https://github.com/felixge/vim-nodejs-errorformat
+nmap <Leader><Leader> :w<CR>:make! \| botright cwindow<CR>
+
+imap <D-v> ^O:set paste<Enter>^R+^O:set nopaste<Enter>
+
+" relative line numbers
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+set directory-=. " don't store swapfiles in the current directory
+

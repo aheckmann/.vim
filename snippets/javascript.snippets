@@ -47,7 +47,7 @@ snippet me
 snippet ex
 	exports = ${1}
 snippet re
-	return 
+	return ${1}
 snippet p
 	prototype${1}
 # mocha
@@ -72,8 +72,9 @@ snippet afe
 		${1}
 	})
 snippet it
-	it('${1}', function(${2}){
-		${3}
+	it('${1}', function(done){
+		${2}
+		done();
 	})
 snippet a
 	assert(${1});
@@ -81,12 +82,24 @@ snippet aok
 	assert.ok(${1});
 snippet ae
 	assert.equal(${1}, ${2});
+snippet ade
+	assert.deepEqual(${1}, ${2});
+snippet at
+	assert.throws(function () {
+		${1}
+	}, /${2}/);
+snippet adnt
+	assert.doesNotThrow(function () {
+		${1}
+	});
 snippet ao
 	assert.ok(${1});
 snippet aie
 	assert.ifError(err);${1}
 snippet ien
 	if (err) return next(err);${1}
+snippet ied
+	if (err) return done(err);${1}
 snippet iet
 	if (err) throw err;${1}
 snippet arg
