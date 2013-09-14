@@ -3,6 +3,10 @@
 " Last Change: 14 Jun 2006
 " Customized by aaron.heckmann+github@gmail.com
 
+" If you’re using vim in iTerm2 on your Mac, make sure you select ‘xterm-256color’ in the 
+" Report Terminal Type under Terminal Emulation.  This will let vim know that you’re using 
+" a terminal capable of 256 colors.
+
 set background=dark
 hi clear
 if exists("syntax_on")
