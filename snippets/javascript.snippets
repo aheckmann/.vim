@@ -27,7 +27,7 @@ snippet r
 	require('${1}')${2}
 # named function
 snippet ff
-	function (${1}) {
+	function(${1}) {
 		${2}
 	})
 snippet f
@@ -36,7 +36,7 @@ snippet f
 	}
 # named function with err
 snippet fe
-	function ${1:function_name} (err, ${2}) {
+	function ${1:function_name}(err, ${2}) {
 		if (err) ${3}
 		${4}
 	}
@@ -52,27 +52,27 @@ snippet p
 	prototype${1}
 # mocha
 snippet d
-	describe('${1}', function(){
+	describe('${1}', function() {
 		${2}
 	})
 snippet bf
-	before(function(){
+	before(function() {
 		${1}
 	})
 snippet bfe
-	beforeEach(function(){
+	beforeEach(function() {
 		${1}
 	})
 snippet af
-	after(function(){
+	after(function() {
 		${1}
 	})
 snippet afe
-	afterEach(function(){
+	afterEach(function() {
 		${1}
 	})
 snippet it
-	it('${1}', function(done){
+	it('${1}', function(done) {
 		${2}
 		done();
 	})
@@ -85,11 +85,11 @@ snippet ae
 snippet ade
 	assert.deepEqual(${1}, ${2});
 snippet at
-	assert.throws(function () {
+	assert.throws(function() {
 		${1}
 	}, /${2}/);
 snippet adnt
-	assert.doesNotThrow(function () {
+	assert.doesNotThrow(function() {
 		${1}
 	});
 snippet ao
@@ -107,6 +107,6 @@ snippet arg
 snippet ins
 	instanceof ${1}
 snippet prn
-	process.nextTick(function () {
+	process.nextTick(function() {
 	  ${1}
 	});
